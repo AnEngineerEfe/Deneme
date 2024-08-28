@@ -1,0 +1,201 @@
+/* Rule = Selector + Declaration /*    /*Selector (p,h1,button etc.*/
+
+        a button{
+            color: #FF9595;  /* İlk 2 karakter kırmızının derecesi,sonraki iki karakter yeşilin derecesi,son 2 ise mavinin*/
+
+            /* (0 to 9) (A to F) */
+        }
+
+        #p1.mod{
+
+            color: rgb(136,255,230);   /* 136 kırmızının derecesi,255 yeşilin derecesi,230 mavinin derecesi (0 to 255) */
+            
+        }
+
+    /*Eğer kodlarda " <a>   <button>   </button>   </a> "  şeklinde bir şey varsa
+    sadece button etkilenecektir.-->
+
+    <!--mod sınıfındaki p'lere uygulayacak.-->
+
+    <!--
+    
+     (Specifiety)
+
+    1.Inline style     (Highest priority)
+    2.IDs                     to
+    3.Classes                 the
+    4.Elements         (Lowest priority)
+    
+    Intenal CSS'de yorum yaparken "/* */ /* işareti <style> içinde olmalı! */
+
+    /* default size is 16px */
+
+    /* flex-grow kutuyu yatay olarak genişletir default 0 */
+    /* flex*shrink kutuyu dikey olarak genişletir default 1 */
+    /* By default all elements are positioned "static" */
+
+    /* sol üst köşe orijin olmak üzere koordinat belirleyebiliriz. */
+
+    #item1 {
+        position:absolute;
+        left:70px;
+        top:120px;
+
+        /* Position:absolute = Her zaman sayfanın sol üst köşesini referans alır.
+         position:fixed = Yeri hep sabit kalır (sağa,sola,yukarı vs. kayma olmaz.)
+         position:relative = Koyulmak istenen kutunun sol üst köşesi referans alınır. */
+
+         div {
+            position:relative;
+         }
+
+         /* yukarıdaki kod aslında " div'e bağlı anlamı veriyor. " yani çıkıyor istediğimiz anlam. */
+
+         button {
+            position:absolute;
+         }
+
+         /* button kendi parentinin (div) sol üst köşesini baz alarak yerleştirilecek. */
+
+         /* Eğer şöyle yazarsak:
+
+         button {
+         position:relative;
+        }
+
+        o zaman kendisinin sol üst köşesi (default static position) baz alınır. */
+
+        /* position:static = Herhangi bir özel yolla (right,bottom vs.) yerleştirilemez. Normal ayarlara göre yerleşir. */
+
+        body{
+            background-image: url('https://....... or anything.png');
+            background-repeat: no-repeat;
+            background-repeat: repeat-y;
+            background-position: 15px 7px;
+            background-size: (width) (height);
+            background-size: contain or cover;
+            
+            /* contain fotoğrafın boyutu kadar
+            cover tüm alanı örter */
+            
+        }
+
+        /*background-position can take pixels,percentages,top,left,bottom-center vs. */
+
+    }
+
+    div:active{
+        transform:translate(50px,-25px);
+    }
+
+    div:hover{
+        transform:translate(30px);  /* yatay olarak 30px sağa hareket eder (dikey sabit!) . */
+        transform:scale(1.2);  /* en-boy oranı korunarak fotoğrafı büyütür ya da küçültür. */
+        transform:rotate(15deg);
+
+        transform: translate() rotate() scale();
+        
+        /* Saat yönünde a derece döndürür. (eğer negatif olursa saat yönü tersi) */
+    }
+
+    /* Varsayılanda yönlendirme (rotate) cismin merkezine göre yapılır. Eğerki dönme noktasını değişeceksek
+    transform-origin(top left,bottom right vs.) kullanılır. */
+
+    p {
+        width: 30%; /* Initial value */
+        transition: width /* property that will be change */ 3s /* duration */ ;
+    }
+
+    p:active /* trigger */ {
+        width: 100%; /* Final value */
+    }
+
+    /* animasyon 1 periyotluk sürede gerçekleşir. */
+
+    /* transition:width 5s, height 6ms, color 3s vs */
+
+    /*transition-delay= animasyon öncesi bekleme süresi */
+
+    button {
+        transition:transform 1s;
+    }
+
+    button:active{
+        transform:scale(1.3);
+    }
+
+    /* animation is sequence of transitions. */
+
+    @keyframes (animation-name) {
+
+    }
+
+    div {
+        animation-name:snakemove;
+        animation-duration:100s;
+        animation-delay:2s;
+        animation-iteration-count: (2) (3) (infinite) vs;
+    }
+
+    @keyframes snakemove {
+        0% {
+
+            /* 0. saniyede bunu yap. */
+
+        }
+
+        35% {
+
+            /* 35.saniyede bunu yap. */
+
+        }
+
+        67% {
+
+            /* Aynı */
+
+        }
+
+        100% {
+
+            /* Aynı */
+
+        }
+    }
+
+    /*Buradaki %'ler animasyon süresinin yüzde x'inci saniyede bu hareketi yap diyor. 
+    (Mesela %33 iken 33.saniyede bunu yap.) */
+
+    /* mesela 33% ile 67% arasında (varsayılan sabit hızlı) geçiş yapıyor yani ani sıçrama yapmıyor. */
+
+    /* bu yüzdelikler anındaki görüntüler keyframe oluyor.
+    keyframeler arasındakiler ise frameler */
+
+    @keyframes snakemove {
+        from {
+
+        }
+
+        to {
+
+        }
+
+    }
+
+    /* default speed function is "ease" */
+
+    div {
+        animation-timing-function: (linear), (ease-in) (ease-out);
+    }
+
+    
+    /* animation: spin (1) 4s (2) linear (3) 0.4s (4) infinite (5) ;
+
+    1= animation-name
+    2= animation-duration
+    3= animation-timing-function
+    4= animation-delay
+    5= animation-iteration-count
+
+    /* example---         animation: loading 5s infinite
+                          animation: spin 3s linear
